@@ -1,9 +1,13 @@
 import sqlite3
 with sqlite3.connect("first.bd") as base:
 	cursor = base.cursor()
-	cursor.execute("DROP TABLE IF EXISTS first")
 	cursor.execute("""CREATE TABLE IF NOT EXISTS first (
 					 id INTEGER PRIMARY KEY,
 					 name TEXT NOT NULL DEFAULT Вася,
 					 score INTEGER DEFAULT 0 
 	)""")
+	cursor.execute("SELECT * FROM first WHERE score > 500 ORDER BY score ASC LIMIT 2, 1")
+	result1 = cursor.fetchmany()
+	print(result1)
+	
+
