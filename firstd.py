@@ -9,7 +9,9 @@ with sqlite3.connect("first.bd") as base:
 					 score INTEGER DEFAULT 0 
 	)"""
     )
-    cursor.execute("SELECT * FROM first WHERE score > 500 ORDER BY score ASC")
-    result1 = cursor.fetchall()
-    for i in result1:
-        print(i)
+    cursor.execute("UPDATE first SET score = 1000 WHERE name LIKE 'Н%'")
+    cursor.execute("SELECT * FROM first")
+    result = cursor.fetchall()
+    print(result)
+    
+
