@@ -4,6 +4,6 @@ with sqlite3.connect("first.bd") as base:
 	cursor.execute("DROP TABLE IF EXISTS first")
 	cursor.execute("""CREATE TABLE IF NOT EXISTS first (
 					 id INTEGER PRIMARY KEY,
-					 name TEXT NOT NULL DEFAULT ВАСЯ,
+					 name TEXT NOT NULL DEFAULT Вася,
 					 score INTEGER DEFAULT 0 
 	)""")
