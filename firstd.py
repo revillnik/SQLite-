@@ -11,7 +11,9 @@ with sqlite3.connect("first.bd") as base:
     )
     cursor.execute("UPDATE first SET score = 1000 WHERE name LIKE 'Н%'")
     cursor.execute("SELECT * FROM first")
-    result = cursor.fetchall()
-    print(result)
-    
+    result1 = cursor.fetchall()
+    print(result1)
+    cursor.execute("SELECT id, name, sum(score) FROM first GROUP BY name ORDER BY score ASC")
+    result2 = cursor.fetchall()
+    print(result2)
 
