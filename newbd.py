@@ -22,7 +22,7 @@ with sqlite3.connect("new.bd") as base:
 	 )"""
     )
     cursor.execute(
-        "SELECT user.name, sum(games.score), count(games.user_id), data.data FROM games JOIN user JOIN data ON games.user_id = user.user_id AND games.user_id = data.user_id GROUP BY games.user_id"
+        "SELECT user.name, sum(games.score), count(games.user_id), data.data FROM games JOIN user JOIN data ON games.user_id = user.user_id AND games.user_id = data.user_id GROUP BY games.user_id ORDER BY sum(games.score) ASC"
     )
     f = cursor.fetchall()
     for i in f:
